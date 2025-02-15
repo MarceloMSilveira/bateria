@@ -45,9 +45,14 @@ function playAudio(selectedChar) {
 
 allButtons.forEach((buttonElement) => {
   buttonElement.addEventListener("click", (evt) => {
-    console.log(this.textContent);
-    playAudio(this.textContent);
+    const clickedChar = evt.target.textContent;
+    console.log(clickedChar);
+    playAudio(clickedChar);
   });
 });
 
-document.addEventListener("keydown", (e) => playAudio(e.key));
+document.addEventListener("keydown", (evt) => {
+  const pressedKey = evt.key;
+  console.log(pressedKey);
+  playAudio(pressedKey);
+});
