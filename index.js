@@ -1,9 +1,7 @@
 const allButtons = document.querySelectorAll(".drum");
 
-function playAudio(evt) {
-  //const characterPressed = this.textContent;
-  const characterPressed = evt.target.textContent;
-  switch (characterPressed) {
+function playAudio(selectedChar) {
+  switch (selectedChar) {
     case "w":
       var audio = new Audio("./sounds/tom-1.mp3");
       audio.play();
@@ -46,5 +44,15 @@ function playAudio(evt) {
 }
 
 allButtons.forEach((buttonElement) => {
-  buttonElement.addEventListener("click", playAudio);
+  buttonElement.addEventListener("click", (evt) => {
+    const clickedChar = evt.target.textContent;
+    console.log(clickedChar);
+    playAudio(clickedChar);
+  });
+});
+
+document.addEventListener("keydown", (evt) => {
+  const pressedKey = evt.key;
+  console.log(pressedKey);
+  playAudio(pressedKey);
 });
