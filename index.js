@@ -1,7 +1,8 @@
 const allButtons = document.querySelectorAll(".drum");
 
-function playAudio() {
-  const characterPressed = this.textContent;
+function playAudio(evt) {
+  //const characterPressed = this.textContent;
+  const characterPressed = evt.target.textContent;
   switch (characterPressed) {
     case "w":
       var audio = new Audio("./sounds/tom-1.mp3");
