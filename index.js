@@ -43,11 +43,24 @@ function playAudio(selectedChar) {
   }
 }
 
+function animateBtn(selectedChar) {
+  const btnClass = "." + selectedChar;
+  const btnElement = document.querySelector(btnClass);
+  console.log(btnElement.textContent);
+  console.log(btnElement.classList);
+  btnElement.classList.add("pressed");
+  console.log(btnElement.classList);
+  setTimeout(() => {
+    btnElement.classList.remove("pressed");
+  }, 100);
+}
+
 allButtons.forEach((buttonElement) => {
   buttonElement.addEventListener("click", (evt) => {
     const clickedChar = evt.target.textContent;
     console.log(clickedChar);
     playAudio(clickedChar);
+    animateBtn(clickedChar);
   });
 });
 
@@ -55,4 +68,5 @@ document.addEventListener("keydown", (evt) => {
   const pressedKey = evt.key;
   console.log(pressedKey);
   playAudio(pressedKey);
+  animateBtn(pressedKey);
 });
