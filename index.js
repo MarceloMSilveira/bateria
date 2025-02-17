@@ -62,9 +62,6 @@ allButtons.forEach((buttonElement) => {
     playAudio(clickedChar);
     animateBtn(clickedChar);
   });
-  buttonElement.addEventListener("touchstart", function (event) {
-    event.preventDefault(); // Bloqueia o comportamento padrão do toque
-  });
 });
 
 document.addEventListener("keydown", (evt) => {
